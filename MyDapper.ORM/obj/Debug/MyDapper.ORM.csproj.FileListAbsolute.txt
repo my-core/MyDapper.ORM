@@ -1,0 +1,13 @@
+F:\Project\MyDapper\MyDapper.Core\bin\Debug\MyDapper.ORM.dll.config
+F:\Project\MyDapper\MyDapper.Core\bin\Debug\MyDapper.ORM.dll
+F:\Project\MyDapper\MyDapper.Core\bin\Debug\MyDapper.ORM.pdb
+F:\Project\MyDapper\MyDapper.Core\bin\Debug\MySql.Data.dll
+F:\Project\MyDapper\MyDapper.Core\obj\Debug\MyDapper.ORM.dll
+F:\Project\MyDapper\MyDapper.Core\obj\Debug\MyDapper.ORM.pdb
+F:\Project\MyDapper\MyDapper.ORM\bin\Debug\MyDapper.ORM.dll
+F:\Project\MyDapper\MyDapper.ORM\bin\Debug\MyDapper.ORM.pdb
+F:\Project\MyDapper\MyDapper.ORM\bin\Debug\MySql.Data.dll
+F:\Project\MyDapper\MyDapper.ORM\obj\Debug\MyDapper.ORM.dll
+F:\Project\MyDapper\MyDapper.ORM\obj\Debug\MyDapper.ORM.pdb
+F:\Project\MyDapper\MyDapper.ORM\obj\Debug\MyDapper.ORM.csprojResolveAssemblyReference.cache
+F:\Project\MyDapper\MyDapper.ORM\bin\Debug\System.Data.SQLite.dll
