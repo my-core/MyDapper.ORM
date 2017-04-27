@@ -1,0 +1,7 @@
+F:\Project\MyDapper\MyDapper.Core\bin\Debug\MyDapper.Core.dll
+F:\Project\MyDapper\MyDapper.Core\bin\Debug\MyDapper.Core.pdb
+F:\Project\MyDapper\MyDapper.Core\obj\Debug\MyDapper.Core.csprojResolveAssemblyReference.cache
+F:\Project\MyDapper\MyDapper.Core\obj\Debug\MyDapper.Core.dll
+F:\Project\MyDapper\MyDapper.Core\obj\Debug\MyDapper.Core.pdb
+F:\Project\MyDapper\MyDapper.Core\bin\Debug\MyDapper.Core.dll.config
+F:\Project\MyDapper\MyDapper.Core\bin\Debug\MySql.Data.dll
