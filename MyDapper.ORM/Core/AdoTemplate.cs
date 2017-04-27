@@ -47,7 +47,7 @@ namespace MyDapper.ORM.Core
             }
             else
             {
-                IDbConnection connection = new SQLiteConnection(ConnectionString);
+                IDbConnection connection = new SQLiteConnection(string.Format("Data Source={0};Version=3;Pooling=False;Max Pool Size=100;", ConnectionString));
                 connection.Open();
                 return connection;
             }
