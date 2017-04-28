@@ -69,6 +69,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Common\Utils.cs" />
     <Compile Include="Dao\Base\BaseDao.cs" />
     <Compile Include="Dao\OrderDao.cs" />
     <Compile Include="Dao\GoodsDao.cs" />
@@ -94,15 +95,15 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyDapper.ORM\MyDapper.ORM.csproj">
-      <Project>{f3b0eb4b-cb8e-404b-89b6-a6e1321ec4c8}</Project>
-      <Name>MyDapper.ORM</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="db\db.sl3" />
     <Content Include="db\sql.txt" />
     <Content Include="阅读指南.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyDapper.ORM.NET40\MyDapper.ORM.NET40.csproj">
+      <Project>{9e8dc9ee-c1d0-4649-94e7-adc6a238ebb4}</Project>
+      <Name>MyDapper.ORM.NET40</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

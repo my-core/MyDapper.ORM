@@ -1,0 +1,6 @@
+E:\测试Demo\MyDapper.ORM\MyDapper.ORM.NET40\obj\Debug\MyDapper.ORM.NET40.csprojResolveAssemblyReference.cache
+E:\测试Demo\MyDapper.ORM\MyDapper.ORM.NET40\obj\Debug\MyDapper.ORM.NET40.csproj.CoreCompileInputs.cache
+E:\测试Demo\MyDapper.ORM\MyDapper.ORM.NET40\bin\Debug\MyDapper.ORM.dll
+E:\测试Demo\MyDapper.ORM\MyDapper.ORM.NET40\bin\Debug\MyDapper.ORM.pdb
+E:\测试Demo\MyDapper.ORM\MyDapper.ORM.NET40\obj\Debug\MyDapper.ORM.dll
+E:\测试Demo\MyDapper.ORM\MyDapper.ORM.NET40\obj\Debug\MyDapper.ORM.pdb

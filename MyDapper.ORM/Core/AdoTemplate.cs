@@ -19,39 +19,9 @@ namespace MyDapper.ORM.Core
     public class AdoTemplate : IAdoTemplate
     {
         /// <summary>
-        /// 数据库连接串
+        /// 数据库连接对象
         /// </summary>
-        public string ConnectionString = string.Empty;
-        /// <summary>
-        /// 数据库类型
-        /// </summary>
-        public DbProvider dbProvider = DbProvider.MySql;
-        /// <summary>
-        /// 打开数据库连接()
-        /// </summary>
-        /// <returns></returns>
-        public IDbConnection OpenConnection()
-        {
-
-            if (dbProvider == DbProvider.SqlServer)
-            {
-                IDbConnection connection = new SqlConnection(ConnectionString);
-                connection.Open();
-                return connection;
-            }
-            else if (dbProvider == DbProvider.MySql)
-            {
-                IDbConnection connection = new MySqlConnection(ConnectionString);
-                connection.Open();
-                return connection;
-            }
-            else
-            {
-                IDbConnection connection = new SQLiteConnection(string.Format("Data Source={0};Version=3;Pooling=False;Max Pool Size=100;", ConnectionString));
-                connection.Open();
-                return connection;
-            }
-        }
+        private IDbConnection dbConnection { get; set; }
 
         #region 通用的增/删/改/查
         /// <summary>
@@ -85,10 +55,7 @@ namespace MyDapper.ORM.Core
                         vals += string.Format("@{0}", name);
                     }
                     sql = string.Format(sql, tableName, cols, vals);
-                    using (IDbConnection conn = OpenConnection())
-                    {
-                        return conn.Execute(sql, t) > 0;
-                    }
+                    return dbConnection.Execute(sql, t) > 0;
                 }
                 else { return false; }
             }
@@ -141,10 +108,7 @@ namespace MyDapper.ORM.Core
                         }
                     }
                     sql = string.Format(sql, tableName, sqlSet, sqlWhere);
-                    using (IDbConnection conn = OpenConnection())
-                    {
-                        return conn.Execute(sql, t) > 0;
-                    }
+                    return dbConnection.Execute(sql, t) > 0;
                 }
                 else { return false; }
             }
@@ -164,10 +128,7 @@ namespace MyDapper.ORM.Core
             {
                 DbTableAttribute attribute = CustomAttributesCache(typeof(T));
                 string sql = string.Format("delete from {0} ", attribute.TableName);
-                using (IDbConnection conn = OpenConnection())
-                {
-                    return Convert.ToInt16(conn.ExecuteScalar(sql, null, null, null, CommandType.Text)) > 0;
-                }
+                return Convert.ToInt16(dbConnection.ExecuteScalar(sql, null, null, null, CommandType.Text)) > 0;
             }
             catch
             {
@@ -195,10 +156,7 @@ namespace MyDapper.ORM.Core
                 {
                     sbSql.AppendFormat(" and {0}=@{0}", pi.Name);
                 }
-                using (IDbConnection conn = OpenConnection())
-                {
-                    return Convert.ToInt16(conn.ExecuteScalar(sbSql.ToString(), parms, null, null, CommandType.Text)) > 0;
-                }
+                return Convert.ToInt16(dbConnection.ExecuteScalar(sbSql.ToString(), parms, null, null, CommandType.Text)) > 0;
             }
             catch
             {
@@ -242,11 +200,8 @@ namespace MyDapper.ORM.Core
                 {
                     sbSql.AppendFormat(" and {0}=@{0}", pi.Name);
                 }
-                using (IDbConnection conn = OpenConnection())
-                {
-                    IDataReader reader = conn.ExecuteReader(sbSql.ToString(), parms, null, null, CommandType.Text);
-                    return reader.Select<T>();
-                }
+                IDataReader reader = dbConnection.ExecuteReader(sbSql.ToString(), parms, null, null, CommandType.Text);
+                return reader.Select<T>();
             }
             catch (Exception ex)
             {
@@ -271,12 +226,9 @@ namespace MyDapper.ORM.Core
             }
             int totalItemCount = Convert.ToInt32(ExecuteScalar("select count(1) from (" + sql + ") as A", parms));
             sql += " limit " + (pageIndex - 1) * pageSize + "," + pageSize + "";
-            using (IDbConnection conn = OpenConnection())
-            {
-                IDataReader reader = conn.ExecuteReader(sql, parms, null, null, CommandType.Text);
-                List<T> list = reader.Select<T>();
-                return new PageList<T>(list, pageIndex, pageSize, totalItemCount);
-            }
+            IDataReader reader = dbConnection.ExecuteReader(sql, parms, null, null, CommandType.Text);
+            List<T> list = reader.Select<T>();
+            return new PageList<T>(list, pageIndex, pageSize, totalItemCount);
         }
         /// <summary>
         /// 分页查询
@@ -304,13 +256,13 @@ namespace MyDapper.ORM.Core
             }
             int totalItemCount = Convert.ToInt32(ExecuteScalar("select count(1) from (" + sql + ") as A"));
             sql += " limit " + (pageIndex - 1) * pageSize + "," + pageSize + "";
-            using (IDbConnection conn = OpenConnection())
-            {
-                IDataReader reader = conn.ExecuteReader(sql, null, null, null, CommandType.Text);
-                List<T> list = reader.Select<T>();
-                return new PageList<T>(list, pageIndex, pageSize, totalItemCount);
-            }
+
+            IDataReader reader = dbConnection.ExecuteReader(sql, null, null, null, CommandType.Text);
+            List<T> list = reader.Select<T>();
+            return new PageList<T>(list, pageIndex, pageSize, totalItemCount);
+
         }
+       
         #endregion
 
         #region ExecuteSql
@@ -345,10 +297,7 @@ namespace MyDapper.ORM.Core
         /// <returns>返回影响的行数</returns>
         public int ExecuteNonQuery(CommandType commandType, string commandText, object parms)
         {
-            using (IDbConnection conn = OpenConnection())
-            {
-                return conn.Execute(commandText, parms, null, null, commandType);
-            }
+            return dbConnection.Execute(commandText, parms, null, null, commandType);
         }
         /// <summary>
         /// 执行SQL语句,返回结果集中的第一行第一列
@@ -381,10 +330,7 @@ namespace MyDapper.ORM.Core
         /// <returns>返回结果集中的第一行第一列</returns>
         public object ExecuteScalar(CommandType commandType, string commandText, object parms)
         {
-            using (IDbConnection conn = OpenConnection())
-            {
-                return conn.ExecuteScalar(commandText, parms, null, null, commandType);
-            }
+            return dbConnection.ExecuteScalar(commandText, parms, null, null, commandType);
         }
         /// <summary>
         /// 执行SQL语句,返回结果集中的第一行
@@ -441,7 +387,7 @@ namespace MyDapper.ORM.Core
             return properties.ToList();
         }
         /// <summary>
-        /// Domaon对象自定义Attributes集合
+        /// Domain对象自定义Attributes集合
         /// </summary>
         private static readonly ConcurrentDictionary<RuntimeTypeHandle, DbTableAttribute> CustomAttributes = new ConcurrentDictionary<RuntimeTypeHandle, DbTableAttribute>();
         private static DbTableAttribute CustomAttributesCache(Type type)

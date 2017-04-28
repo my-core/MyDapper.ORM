@@ -1,5 +1,5 @@
 ﻿
-using MyDapper.ORM.Core;
+using MyDapper.ORM;
 using MyDapper.Test.Model;
 using MyDapper.Test.Service;
 using System;
@@ -21,12 +21,11 @@ namespace MyDapper.Test
             {
                 userService.Insert(new UserModel
                 {
-                    _ID = Guid.NewGuid().ToString(),
+                    ID = Guid.NewGuid().ToString(),
                     UserName = "zhangsan_" + i.ToString(),
-                    RealName = "张三_" + i.ToString(),
-                    NickName = "张三_" + i.ToString(),
-                    MobileNo = "13632809657",
-                    Sex = 1,
+                    Name = "张三_" + i.ToString(),
+                    RoleID = "1",
+                    Password = "Password" + i.ToString(),
                     CreateBy = Guid.NewGuid().ToString(),
                     CreateTime = DateTime.Now
                 });

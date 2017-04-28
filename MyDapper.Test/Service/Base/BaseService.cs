@@ -1,4 +1,4 @@
-﻿using MyDapper.ORM.Core;
+﻿using MyDapper.ORM;
 
 using System.Configuration;
 using System.Data;
@@ -23,7 +23,7 @@ namespace MyDapper.Test.Service
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
         /// <returns></returns>
-        public bool Insert<T>(T t)
+        public int Insert<T>(T t)
         {
             return baseDao.Insert<T>(t);
         }
@@ -34,7 +34,7 @@ namespace MyDapper.Test.Service
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
         /// <returns></returns>
-        public bool Update<T>(T t)
+        public int Update<T>(T t)
         {
             return baseDao.Update<T>(t);
         }
@@ -45,7 +45,7 @@ namespace MyDapper.Test.Service
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        public bool Delete<T>()
+        public int Delete<T>()
         {
             return baseDao.Delete<T>();
         }
@@ -56,7 +56,7 @@ namespace MyDapper.Test.Service
         /// <typeparam name="T"></typeparam>
         /// <param name="hs"></param>
         /// <returns></returns>
-        public bool Delete<T, R>(R parms)
+        public int Delete<T, R>(R parms)
         {
             return baseDao.Delete<T,R>(parms);
         }

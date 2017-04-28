@@ -9,7 +9,7 @@ using System.Reflection.Emit;
 namespace MyDapper.ORM.Core
 {
     /// <summary>
-    /// DataReader Extensions
+    /// DataReader 扩展
     /// </summary>
     public static class DataReaderExtensions
     {

@@ -1,0 +1,11 @@
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\bin\Debug\MyDapper.Test.exe.config
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\bin\Debug\MyDapper.Test.exe
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\bin\Debug\MyDapper.Test.pdb
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\bin\Debug\MyDapper.ORM.dll
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\bin\Debug\MySql.Data.dll
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\bin\Debug\MyDapper.ORM.pdb
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\obj\Debug\MyDapper.Test.csprojResolveAssemblyReference.cache
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\obj\Debug\MyDapper.Test.csproj.CoreCompileInputs.cache
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\obj\Debug\MyDapper.Test.csproj.CopyComplete
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\obj\Debug\MyDapper.Test.exe
+E:\测试Demo\MyDapper.ORM\MyDapper.Test\obj\Debug\MyDapper.Test.pdb

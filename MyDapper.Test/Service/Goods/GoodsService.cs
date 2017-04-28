@@ -1,4 +1,4 @@
-﻿using MyDapper.ORM.Core;
+﻿using MyDapper.ORM;
 
 using System.Configuration;
 using System.Data;

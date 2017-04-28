@@ -1,5 +1,6 @@
 ﻿
-using MyDapper.ORM.Core;
+using MyDapper.ORM;
+using MyDapper.ORM.Mapper;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,17 +10,16 @@ using System.Threading.Tasks;
 namespace MyDapper.Test.Model
 {
     /// <summary>
-    /// 注意，DbTable不能缺少
+    /// 注意，Table不能缺少
     /// </summary>
-    [DbTable("T_User")]
+    [Table("T_User", "ID", PrimaryKeyType.Assigned)]
     public class UserModel
     {
-        public string _ID { get; set; }
+        public string ID { get; set; }
         public string UserName { get; set; }
-        public string RealName { get; set; }
-        public string NickName { get; set; }
-        public string MobileNo { get; set; }
-        public int Sex { get; set; }
+        public string Password { get; set; }
+        public string Name { get; set; }
+        public string RoleID { get; set; }
         public string CreateBy { get; set; }
         public DateTime CreateTime { get; set; }
     }

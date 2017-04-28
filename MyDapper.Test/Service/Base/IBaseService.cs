@@ -1,4 +1,5 @@
-﻿using MyDapper.ORM.Core;
+﻿using MyDapper.ORM;
+using MyDapper.ORM;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -14,7 +15,7 @@ namespace MyDapper.Test.Service
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
         /// <returns></returns>
-        bool Insert<T>(T t);
+        int Insert<T>(T t);
 
         /// <summary>
         /// 更新
@@ -22,14 +23,14 @@ namespace MyDapper.Test.Service
         /// <typeparam name="T"></typeparam>
         /// <param name="t"></param>
         /// <returns></returns>
-        bool Update<T>(T t);
+        int Update<T>(T t);
 
         /// <summary>
         /// 删除
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
-        bool Delete<T>();
+        int Delete<T>();
 
         /// <summary>
         /// 删除
@@ -37,7 +38,7 @@ namespace MyDapper.Test.Service
         /// <typeparam name="T"></typeparam>
         /// <param name="hs"></param>
         /// <returns></returns>
-        bool Delete<T, R>(R parms);
+        int Delete<T, R>(R parms);
 
         /// <summary>
         /// 查询(单记录)
