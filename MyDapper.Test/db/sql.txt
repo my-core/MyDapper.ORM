@@ -1,11 +1,11 @@
 ﻿CREATE TABLE T_User (
-    ID         STRING (30) PRIMARY KEY
+    ID         STRING (40) PRIMARY KEY
                            NOT NULL,
     UserName   STRING (20) NOT NULL,
     RealName   STRING (10) NOT NULL,
     NickName   STRING (10),
     MobileNo   STRING (11),
     Sex        INTEGER (4) NOT NULL,
-    CreateBy   STRING (30) NOT NULL,
+    CreateBy   STRING (40) NOT NULL,
     CreateTime DATE        NOT NULL
 );
